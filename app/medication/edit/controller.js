@@ -53,7 +53,7 @@ export default AbstractEditController.extend(AddNewPatient, FulfillRequest, Inve
     return `${returnClass} test-quantity-input`;
   }),
 
-  quantityLabel: computed('isFulfilled', function() {
+  quantityLabel: computed('intl.locale', 'isFulfilled', function() {
     let intl = this.get('intl');
     let returnLabel = intl.t('medication.labels.quantityRequested');
     let isFulfilled = this.get('isFulfilled');

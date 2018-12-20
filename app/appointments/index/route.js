@@ -6,12 +6,8 @@ import { t } from 'hospitalrun/macro';
 export default AbstractIndexRoute.extend({
   editReturn: 'appointments.index',
   modelName: 'appointment',
-  newButtonText: computed('intl.locale', () => {
-    return t('appointments.buttons.newButton');
-  }),
-  pageTitle: computed('intl.locale', () => {
-    return t('appointments.thisWeek');
-  }),
+  newButtonText: t('appointments.buttons.newButton'),
+  pageTitle: t('appointments.thisWeek'),
 
   _getStartKeyFromItem(item) {
     let endDate = item.get('endDate');

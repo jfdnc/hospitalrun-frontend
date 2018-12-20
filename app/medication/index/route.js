@@ -4,9 +4,7 @@ import AbstractIndexRoute from 'hospitalrun/routes/abstract-index-route';
 
 export default AbstractIndexRoute.extend({
   modelName: 'medication',
-  pageTitle: computed('intl.locale', () => {
-    return t('medication.pageTitle');
-  }),
+  pageTitle: t('medication.pageTitle'),
   searchStatus: 'Requested',
 
   _getStartKeyFromItem(item) {

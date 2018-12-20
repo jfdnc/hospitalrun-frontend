@@ -87,7 +87,7 @@ export default AbstractEditController.extend(AllergyActions, BloodTypes, Diagnos
     return this.currentUserCan('delete_visit');
   }),
 
-  patientTypes: computed(function() {
+  patientTypes: computed('intl.locale', function() {
     let intl = get(this, 'intl');
     let types = [
       'Charity',

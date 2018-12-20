@@ -59,7 +59,7 @@ export default AbstractModel.extend(DOBDays, PatientName, {
   payments: DS.hasMany('payment', { async: true }),
   paymentProfile: DS.belongsTo('price-profile', { async: false }),
 
-  age: computed('dateOfBirth', function() {
+  age: computed('intl.locale', 'dateOfBirth', function() {
     let dob = get(this, 'dateOfBirth');
     return this.convertDOBToText(dob);
   }),
@@ -86,7 +86,7 @@ export default AbstractModel.extend(DOBDays, PatientName, {
     return this.getPatientDisplayId(this);
   }),
 
-  shortAge: computed('dateOfBirth', function() {
+  shortAge: computed('intl.locale', 'dateOfBirth', function() {
     let dob = get(this, 'dateOfBirth');
     return this.convertDOBToText(dob, true);
   }),

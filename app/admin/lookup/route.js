@@ -4,9 +4,7 @@ import { t } from 'hospitalrun/macro';
 
 export default AbstractIndexRoute.extend({
   hideNewButton: true,
-  pageTitle: computed('intl.locale', () => {
-    return t('admin.lookup.pageTitle');
-  }),
+  pageTitle: t('admin.lookup.pageTitle'),
   model() {
     return this.store.findAll('lookup').catch((error) => this.send('error', error));
   },

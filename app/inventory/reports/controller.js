@@ -16,7 +16,7 @@ export default AbstractReportController.extend(LocationName, ModalHelper, Number
   inventoryController: controller('inventory'),
   effectiveDate: null,
   endDate: null,
-  expenseCategories: computed(function() {
+  expenseCategories: computed('intl.locale', function() {
     let intl = this.get('intl');
     return [intl.t('inventory.labels.inventoryConsumed'), intl.t('inventory.labels.giftUsage'), intl.t('inventory.labels.inventoryObsolence')];
   }),
@@ -30,7 +30,7 @@ export default AbstractReportController.extend(LocationName, ModalHelper, Number
 
   database: service(),
   warehouseList: map('inventoryController.warehouseList.value', SelectValues.selectValuesMap),
-  reportColumns: computed(function() {
+  reportColumns: computed('intl.locale', function() {
     let intl = this.get('intl');
     return {
       date: {
@@ -142,7 +142,7 @@ export default AbstractReportController.extend(LocationName, ModalHelper, Number
       }
     };
   }),
-  reportTypes: computed(function() {
+  reportTypes: computed('intl.locale', function() {
     let intl = this.get('intl');
     return [{
       name: intl.t('inventory.reports.daysSupply'),

@@ -13,9 +13,7 @@ export default AbstractIndexRoute.extend(UserSession, {
     }
   }),
   newButtonText: t('patients.buttons.newPatient'),
-  pageTitle: computed('intl.locale', () => {
-    return t('patients.titles.patientListing');
-  }),
+  pageTitle: t('patients.titles.patientListing'),
 
   _getStartKeyFromItem(item) {
     let displayPatientId = item.get('displayPatientId');

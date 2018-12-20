@@ -3,9 +3,7 @@ import AbstractIndexRoute from 'hospitalrun/routes/abstract-index-route';
 import { t } from 'hospitalrun/macro';
 
 export default AbstractIndexRoute.extend({
-  pageTitle: computed('intl.locale', () => {
-    return t('admin.textReplacements.pageTitle');
-  }),
+  pageTitle: t('admin.textReplacements.pageTitle'),
   hideNewButton: true,
 
   model() {

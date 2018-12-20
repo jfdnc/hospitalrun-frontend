@@ -9,9 +9,7 @@ export default AppointmentIndexRoute.extend({
   editReturn: 'appointments.calendar',
   filterParams: ['appointmentType', 'provider', 'status', 'location'],
   modelName: 'appointment',
-  pageTitle: computed('intl.locale', () => {
-    return t('appointments.calendarTitle');
-  }),
+  pageTitle: t('appointments.calendarTitle'),
 
   queryParams: {
     appointmentType: { refreshModel: true },

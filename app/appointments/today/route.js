@@ -6,9 +6,7 @@ import { t } from 'hospitalrun/macro';
 export default AppointmentIndexRoute.extend({
   editReturn: 'appointments.today',
   modelName: 'appointment',
-  pageTitle: computed('intl.locale', () => {
-    return t('appointments.todayTitle');
-  }),
+  pageTitle: t('appointments.todayTitle'),
 
   _modelQueryParams() {
     let endOfDay = moment().endOf('day').toDate().getTime();

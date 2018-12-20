@@ -4,12 +4,8 @@ import { t } from 'hospitalrun/macro';
 
 export default AppointmenCalendarRoute.extend({
   editReturn: 'appointments.theater',
-  newButtonText: computed('intl.locale', () => {
-    return t('appointments.buttons.scheduleSurgery');
-  }),
-  pageTitle: computed('intl.locale', () => {
-    return t('appointments.titles.theaterSchedule');
-  }),
+  newButtonText: t('appointments.buttons.scheduleSurgery'),
+  pageTitle: t('appointments.titles.theaterSchedule'),
 
   _modelQueryParams(params) {
     let queryParams = this._super(params);

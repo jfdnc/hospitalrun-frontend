@@ -23,7 +23,7 @@ export default AbstractReportController.extend(PatientDiagnosis, PatientVisits, 
   reportType: 'detailedAdmissions',
   patientDetails: {},
 
-  admissionReportColumns: computed(function() {
+  admissionReportColumns: computed('intl.locale', function() {
     let intl = this.get('intl');
     return {
       sex: {
@@ -39,7 +39,7 @@ export default AbstractReportController.extend(PatientDiagnosis, PatientVisits, 
       }
     };
   }),
-  admissionDetailReportColumns: computed(function() {
+  admissionDetailReportColumns: computed('intl.locale', function() {
     let intl = this.get('intl');
     return {
       id: {
@@ -72,7 +72,7 @@ export default AbstractReportController.extend(PatientDiagnosis, PatientVisits, 
       }
     };
   }),
-  diagnosticReportColumns: computed(function() {
+  diagnosticReportColumns: computed('intl.locale', function() {
     let intl = this.get('intl');
     return {
       type: {
@@ -88,7 +88,7 @@ export default AbstractReportController.extend(PatientDiagnosis, PatientVisits, 
       }
     };
   }),
-  procedureDetailReportColumns: computed(function() {
+  procedureDetailReportColumns: computed('intl.locale', function() {
     let intl = this.get('intl');
     return {
       id: {
@@ -114,7 +114,7 @@ export default AbstractReportController.extend(PatientDiagnosis, PatientVisits, 
       }
     };
   }),
-  reportColumns: computed(function() {
+  reportColumns: computed('intl.locale', function() {
     let intl = this.get('intl');
     return {
       visitDate: {
@@ -199,7 +199,7 @@ export default AbstractReportController.extend(PatientDiagnosis, PatientVisits, 
       }
     };
   }),
-  statusReportColumns: computed(function() {
+  statusReportColumns: computed('intl.locale', function() {
     let intl = this.get('intl');
     return {
       id: {
@@ -231,7 +231,7 @@ export default AbstractReportController.extend(PatientDiagnosis, PatientVisits, 
       }
     };
   }),
-  reportTypes: computed(function() {
+  reportTypes: computed('intl.locale', function() {
     let intl = this.get('intl');
     return [{
       name: intl.t('patients.titles.admissionsDetail'),

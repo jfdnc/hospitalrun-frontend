@@ -65,7 +65,7 @@ export default AbstractEditController.extend(FulfillRequest, InventoryLocations,
     return (status === 'Requested');
   }),
 
-  quantityLabel: computed('selectedInventoryItem', function() {
+  quantityLabel: computed('intl.locale', 'selectedInventoryItem', function() {
     let selectedInventoryItem = this.get('selectedInventoryItem');
     if (isEmpty(selectedInventoryItem)) {
       return this.get('intl').t('labels.quantity').toString();

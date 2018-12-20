@@ -21,29 +21,30 @@
       {{else}}
         <div class="row">
           <div data-test-selector="select-report-start-date">
-            {{date-picker model=this property="startDate" label="Start Date" class="col-sm-4" maxDate="now"}}
+            {{date-picker model=this property="startDate" label=(t "labels.startDate") class="col-sm-4" maxDate="now"}}
           </div>
           <div data-test-selector="select-report-end-date">
-            {{date-picker model=this property="endDate" label="End Date" class="col-sm-4" maxDate="now"}}
+            {{date-picker model=this property="endDate" label=(t "labels.endDate") class="col-sm-4" maxDate="now"}}
           </div>
         </div>
       {{/if}}
       {{#if isVisitReport}}
         <div class="row">
-          {{form.select class="col-sm-6 form-input-group" label="Visit Type"
+          {{form.select class="col-sm-6 form-input-group" label=(t "reports.labels.visitType")
             property="visitType" content=visitTypes
             prompt=" "
           }}
-          {{form.select class="col-sm-6 form-input-group" label="Examiner"
+          {{form.select class="col-sm-6 form-input-group" label=(t "reports.labels.examiner")
             property="examiner" content=physicianList
             prompt=" "
           }}
         </div>
         <div class="row">
-          {{form.select class="col-sm-6 form-input-group" label="Location"
+          {{form.select class="col-sm-6 form-input-group" label=(t "reports.labels.location")
             property="location" content=locationList
             prompt=" "
           }}
+          {{!-- TODO: Need translation for the word "Clinic" to add intl locale here --}}
           {{form.select class="col-sm-6 form-input-group" label="Clinic"
             property="clinic" content=clinicList
             prompt=" "
@@ -51,8 +52,9 @@
         </div>
         <div class="row">
           <div class="form-group col-xs-12">
-            {{select-or-typeahead form=form model=model property="diagnosis"
-              label="Diagnosis" list=diagnosisList
+            {{!-- TODO: Replicate "visits.labels.diagnosis" in "reports.labels.diagnosis" --}}
+            {{select-or-typeahead form=form model=model label=(t "visits.labels.diagnosis")
+              property="diagnosis" list=diagnosisList
             }}
           </div>
         </div>
