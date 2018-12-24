@@ -13,7 +13,7 @@ const STATUS_VALUES = [
 ];
 
 export default Mixin.create({
-  planStatuses: computed(function() {
+  planStatuses: computed('intl.locale', function() {
     let intl = this.get('intl');
 
     return STATUS_VALUES.map((status) => {

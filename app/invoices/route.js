@@ -59,7 +59,7 @@ export default AbstractModuleRoute.extend(ModalHelper, PatientListRoute, {
     }
   },
 
-  subActions: computed(function() {
+  subActions: computed('intl.locale', function() {
     let actions = [{
       text: this.get('intl').t('billing.navigation.billed'),
       linkTo: 'invoices.index',

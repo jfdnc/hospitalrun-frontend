@@ -157,7 +157,7 @@ export default AbstractEditController.extend(AddNewPatient, FulfillRequest, Inve
     }
   }),
 
-  updateButtonText: computed('model.isNew', 'isFulfilling', 'model.hideFulfillRequest', function() {
+  updateButtonText: computed('model.isNew', 'isFulfilling', 'model.hideFulfillRequest', 'intl.locale', function() {
     let intl = this.get('intl');
     if (this.get('model.hideFulfillRequest')) {
       return intl.t('buttons.dispense');

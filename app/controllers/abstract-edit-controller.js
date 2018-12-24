@@ -13,7 +13,7 @@ import UserSession from 'hospitalrun/mixins/user-session';
 export default Controller.extend(EditPanelProps, IsUpdateDisabled, ModalHelper, UserSession, {
   cancelAction: 'allItems',
 
-  cancelButtonText: computed('model.hasDirtyAttributes', function() {
+  cancelButtonText: computed('model.hasDirtyAttributes', 'intl.locale', function() {
     let intl = get(this, 'intl');
     let hasDirtyAttributes = get(this, 'model.hasDirtyAttributes');
 
@@ -57,7 +57,7 @@ export default Controller.extend(EditPanelProps, IsUpdateDisabled, ModalHelper, 
   }),
 
   updateButtonAction: 'update',
-  updateButtonText: computed('model.isNew', function() {
+  updateButtonText: computed('model.isNew', 'intl.locale', function() {
     let intl = get(this, 'intl');
     if (get(this, 'model.isNew')) {
       return intl.t('buttons.add');

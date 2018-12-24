@@ -6,7 +6,6 @@ import { inject as controller } from '@ember/controller';
 import AbstractEditController from 'hospitalrun/controllers/abstract-edit-controller';
 import InventoryId from 'hospitalrun/mixins/inventory-id';
 import InventoryLocations from 'hospitalrun/mixins/inventory-locations';
-import { t } from 'hospitalrun/macro';
 
 export default AbstractEditController.extend(InventoryId, InventoryLocations, {
   doingUpdate: false,
@@ -72,7 +71,7 @@ export default AbstractEditController.extend(InventoryId, InventoryLocations, {
     return total;
   }),
 
-  updateButtonText: t('inventory.labels.save'),
+  updateButtonText: computed('intl.locale', function(){ return this.get('intl').t('inventory.labels.save') }),
 
   updateCapability: 'add_inventory_item',
 

@@ -59,7 +59,7 @@ export default AbstractEditController.extend({
     }
   },
 
-  formName: computed('model.name', function() {
+  formName: computed('model.name', 'intl.locale', function() {
     let intl = this.get('intl');
     let formName = this.get('model.name');
     if (isEmpty(formName)) {

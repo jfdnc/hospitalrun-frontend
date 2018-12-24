@@ -32,7 +32,7 @@ export default Component.extend({
     this._updateDates();
   },
 
-  hourList: computed(function() {
+  hourList: computed('intl.locale', function() {
     let hour;
     let hourList = [];
     let intl = this.get('intl');

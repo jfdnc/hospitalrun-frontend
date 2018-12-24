@@ -26,7 +26,7 @@ export default AbstractEditController.extend(NumberFormat, PatientSubmodule, Pub
   updateCapability: 'add_invoice',
   wardCharges: [],
 
-  additionalButtons: computed('model.isValid', 'model.status', function() {
+  additionalButtons: computed('model.isValid', 'model.status', 'intl.locale', function() {
     let buttons = [];
     let isValid = this.get('model.isValid');
     let status = this.get('model.status');
@@ -42,7 +42,7 @@ export default AbstractEditController.extend(NumberFormat, PatientSubmodule, Pub
       class: 'btn btn-default neutral',
       buttonAction: 'printInvoice',
       buttonIcon: 'glyphicon glyphicon-print',
-      buttonText: 'Print'
+      buttonText: this.get('intl').t('buttons.print')
     });
     return buttons;
 

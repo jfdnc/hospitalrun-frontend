@@ -74,7 +74,7 @@ export default AbstractEditController.extend(ChargeActions, PatientSubmodule, {
     }
   },
 
-  additionalButtons: computed('canComplete', 'model.isValid', function() {
+  additionalButtons: computed('canComplete', 'model.isValid', 'intl.locale', function() {
     let canComplete = this.get('canComplete');
     let isValid = this.get('model.isValid');
     let intl = this.get('intl');

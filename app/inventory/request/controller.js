@@ -81,7 +81,7 @@ export default AbstractEditController.extend(FulfillRequest, InventoryLocations,
 
   updateViaFulfillRequest: false,
 
-  updateButtonText: computed('model.isNew', 'isFulfilling', function() {
+  updateButtonText: computed('model.isNew', 'isFulfilling', 'intl.locale', function() {
     if (this.get('isFulfilling')) {
       return this.get('intl').t('buttons.fulfill');
     }

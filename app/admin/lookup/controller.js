@@ -19,59 +19,60 @@ export default Controller.extend(BillingCategories, EKMixin,
     fileSystem: service('filesystem'),
     lookupLists: service(),
 
-    lookupTypes: computed(function() {
+    lookupTypes: computed('intl.locale', function() {
+      let intl = this.get('intl');
       return [{
-        name: this.get('intl').t('admin.lookup.anesthesiaTypes'),
+        name: intl.t('admin.lookup.anesthesiaTypes'),
         value: 'anesthesia_types',
         model: {
           procedure: 'anesthesiaType'
         }
       }, {
-        name: this.get('intl').t('admin.lookup.anesthesiologists'),
+        name: intl.t('admin.lookup.anesthesiologists'),
         value: 'anesthesiologists',
         model: {
           procedure: 'anesthesiologist'
         }
       }, {
         defaultValues: 'defaultBillingCategories',
-        name: this.get('intl').t('admin.lookup.billingCategories'),
+        name: intl.t('admin.lookup.billingCategories'),
         value: 'billing_categories',
         models: {
           'billing-line-item': 'category'
         }
       }, {
-        name: this.get('intl').t('admin.lookup.clinicList'),
+        name: intl.t('admin.lookup.clinicList'),
         value: 'clinic_list',
         models: { // Models that use this lookup -- use this later to update models on lookup changes
           patient: 'clinic'
         }
       }, {
-        name: this.get('intl').t('admin.lookup.countryList'),
+        name: intl.t('admin.lookup.countryList'),
         value: 'country_list',
         models: {
           patient: 'country'
         }
       }, {
-        name: this.get('intl').t('admin.lookup.diagnosisList'),
+        name: intl.t('admin.lookup.diagnosisList'),
         value: 'diagnosis_list',
         models: {
           diagnosis: 'diagnosis'
         }
       }, {
-        name: this.get('intl').t('admin.lookup.cptCodeList'),
+        name: intl.t('admin.lookup.cptCodeList'),
         value: 'cpt_code_list',
         models: {
           procedure: 'cptCode'
         }
       }, {
-        name: this.get('intl').t('admin.lookup.expenseAccountList'),
+        name: intl.t('admin.lookup.expenseAccountList'),
         value: 'expense_account_list',
         models: {
           'inv-request': 'expenseAccount',
           pricing: 'expenseAccount'
         }
       }, {
-        name: this.get('intl').t('admin.lookup.aisleLocationList'),
+        name: intl.t('admin.lookup.aisleLocationList'),
         value: 'aisle_location_list',
         models: {
           inventory: 'aisleLocation',
@@ -83,7 +84,7 @@ export default Controller.extend(BillingCategories, EKMixin,
           ]
         }
       }, {
-        name: this.get('intl').t('admin.lookup.warehouseList'),
+        name: intl.t('admin.lookup.warehouseList'),
         value: 'warehouse_list',
         models: {
           inventory: 'location',
@@ -95,26 +96,26 @@ export default Controller.extend(BillingCategories, EKMixin,
           ]
         }
       }, {
-        name: this.get('intl').t('admin.lookup.incidentDepartments'),
+        name: intl.t('admin.lookup.incidentDepartments'),
         value: 'incident_departments',
         models: {
           incident: 'department'
         }
       }, {
         defaultValues: 'defaultInventoryTypes',
-        name: this.get('intl').t('admin.lookup.inventoryTypes'),
+        name: intl.t('admin.lookup.inventoryTypes'),
         value: 'inventory_types',
         models: {
           inventory: 'inventoryType'
         }
       }, {
-        name: this.get('intl').t('admin.lookup.patientStatusList'),
+        name: intl.t('admin.lookup.patientStatusList'),
         value: 'patient_status_list',
         models: {
           patient: 'status'
         }
       }, {
-        name: this.get('intl').t('admin.lookup.physicianList'),
+        name: intl.t('admin.lookup.physicianList'),
         value: 'physician_list',
         models: {
           appointment: 'provider',
@@ -125,51 +126,51 @@ export default Controller.extend(BillingCategories, EKMixin,
           ]
         }
       }, {
-        name: this.get('intl').t('admin.lookup.procedureList'),
+        name: intl.t('admin.lookup.procedureList'),
         value: 'procedure_list',
         models: {
           procedure: 'description'
         }
       }, {
-        name: this.get('intl').t('admin.lookup.procedureLocations'),
+        name: intl.t('admin.lookup.procedureLocations'),
         value: 'procedure_locations',
         models: {
           procedure: 'location'
         }
       }, {
-        name: this.get('intl').t('admin.lookup.procedurePricingTypes'),
+        name: intl.t('admin.lookup.procedurePricingTypes'),
         value: 'procedure_pricing_types',
         models: {
           pricing: 'pricingType'
         }
       }, {
-        name: this.get('intl').t('admin.lookup.radiologists'),
+        name: intl.t('admin.lookup.radiologists'),
         value: 'radiologists',
         model: {
           imaging: 'radiologist'
         }
       }, {
-        name: this.get('intl').t('labels.sex'),
+        name: intl.t('labels.sex'),
         value: 'sex',
         model: {
           patient: 'sex'
         }
       }, {
         defaultValues: 'defaultUnitList',
-        name: this.get('intl').t('admin.lookup.unitTypes'),
+        name: intl.t('admin.lookup.unitTypes'),
         value: 'unit_types',
         models: {
           inventory: 'distributionUnit',
           'inv-purchase': 'distributionUnit'
         }
       }, {
-        name: this.get('intl').t('admin.lookup.vendorList'),
+        name: intl.t('admin.lookup.vendorList'),
         value: 'vendor_list',
         models: {
           'inv-purchase': 'vendor'
         }
       }, {
-        name: this.get('intl').t('admin.lookup.visitLocationList'),
+        name: intl.t('admin.lookup.visitLocationList'),
         value: 'visit_location_list',
         models: {
           appointment: 'location',
@@ -177,13 +178,13 @@ export default Controller.extend(BillingCategories, EKMixin,
         }
       }, {
         defaultValues: 'defaultVisitTypes',
-        name: this.get('intl').t('admin.lookup.visitTypes'),
+        name: intl.t('admin.lookup.visitTypes'),
         value: 'visit_types',
         models: {
           visit: 'visitType'
         }
       }, {
-        name: this.get('intl').t('admin.lookup.wardPricingTypes'),
+        name: intl.t('admin.lookup.wardPricingTypes'),
         value: 'ward_pricing_types',
         models: {
           pricing: 'pricingType'

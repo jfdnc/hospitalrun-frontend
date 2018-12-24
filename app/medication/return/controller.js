@@ -119,5 +119,5 @@ export default AbstractEditController.extend(FulfillRequest, InventoryLocations,
     }
   },
 
-  updateButtonText: t('medication.returnMedication')
+  updateButtonText: computed('intl.locale', function(){ return this.get('intl').t('medication.returnMedication') })
 });

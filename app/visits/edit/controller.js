@@ -161,7 +161,7 @@ export default AbstractEditController.extend(AddNewPatient, AllergyActions, Char
     }
   }),
 
-  updateButtonText: computed('model.{checkIn,isNew}', function() {
+  updateButtonText: computed('model.{checkIn,isNew}', 'intl.locale', function() {
     let intl = this.get('intl');
     if (this.get('model.checkIn')) {
       return intl.t('visits.buttons.checkIn');
