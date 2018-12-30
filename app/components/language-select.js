@@ -21,6 +21,7 @@ export default Component.extend({
     return options;
   }),
 
+  //why?
   onFinish: () => {},
 
   actions: {

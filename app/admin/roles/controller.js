@@ -145,20 +145,28 @@ export default AbstractEditController.extend(UserRoles, UserSession, {
     return missing;
   }),
 
-  capabilitySections: map('availableCapabilities', function(section) {
+  capabilitySections: computed('intl.locale', function() {
+    const sections = this.get('availableCapabilities');
+    let mappedSections = [];
     let mappedCapabilities = [];
-    section.capabilities.forEach((key) => {
-      mappedCapabilities.push({
-        key,
-        name: this.get('intl').t(`admin.roles.capability.${key}`)
-      });
-    });
-    return {
-      name: this.get('intl').t(`admin.roles.capability.${section.name}`),
-      capabilities: mappedCapabilities
-    };
-  }),
 
+    sections.forEach(section => {
+      section.capabilities.forEach(key => {
+        mappedCapabilities.push({
+          key,
+          name: this.get('intl').t(`admin.roles.capability.${key}`)
+        });
+      });
+      mappedSections.push({
+        name: this.get('intl').t(`admin.roles.capability.${section.name}`),
+        capabilities: mappedCapabilities
+      });
+      mappedCapabilities = [];
+    });
+
+    return mappedSections;
+  }),
+  
   actions: {
     selectRole(role) {
       let roleToUpdate = this.get('model').findBy('id', role.dasherize());

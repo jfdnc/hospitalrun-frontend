@@ -130,6 +130,7 @@ export default Route.extend(UserSession, AuthenticatedRouteMixin, {
       navigationController.set('allowSearch', false);
     }
     let currentController = this.controllerFor(this.get('moduleName'));
+    //computed value being set on route instance -- not recomputed
     let propsToSet = this.getProperties('additionalButtons', 'currentScreenTitle', 'newButtonAction', 'newButtonText', 'sectionTitle', 'subActions');
     currentController.setProperties(propsToSet);
     if (!isEmpty(this.additionalModels)) {
