@@ -1,6 +1,6 @@
 import { isEmpty } from '@ember/utils';
 import { computed } from '@ember/object';
-import { filter, map } from '@ember/object/computed';
+import { filter } from '@ember/object/computed';
 import AbstractEditController from 'hospitalrun/controllers/abstract-edit-controller';
 import UserRoles from 'hospitalrun/mixins/user-roles';
 import UserSession from 'hospitalrun/mixins/user-session';
@@ -146,12 +146,12 @@ export default AbstractEditController.extend(UserRoles, UserSession, {
   }),
 
   capabilitySections: computed('intl.locale', function() {
-    const sections = this.get('availableCapabilities');
+    let sections = this.get('availableCapabilities');
     let mappedSections = [];
     let mappedCapabilities = [];
 
-    sections.forEach(section => {
-      section.capabilities.forEach(key => {
+    sections.forEach((section) => {
+      section.capabilities.forEach((key) => {
         mappedCapabilities.push({
           key,
           name: this.get('intl').t(`admin.roles.capability.${key}`)
@@ -166,7 +166,7 @@ export default AbstractEditController.extend(UserRoles, UserSession, {
 
     return mappedSections;
   }),
-  
+
   actions: {
     selectRole(role) {
       let roleToUpdate = this.get('model').findBy('id', role.dasherize());

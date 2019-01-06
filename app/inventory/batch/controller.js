@@ -71,7 +71,9 @@ export default AbstractEditController.extend(InventoryId, InventoryLocations, {
     return total;
   }),
 
-  updateButtonText: computed('intl.locale', function(){ return this.get('intl').t('inventory.labels.save') }),
+  updateButtonText: computed('intl.locale', function(){ 
+    return this.get('intl').t('inventory.labels.save');
+  }),
 
   updateCapability: 'add_inventory_item',
 

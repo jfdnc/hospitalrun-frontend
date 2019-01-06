@@ -1,4 +1,3 @@
-import { computed } from '@ember/object';
 import AbstractIndexRoute from 'hospitalrun/routes/abstract-index-route';
 import { t } from 'hospitalrun/macro';
 

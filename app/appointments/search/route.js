@@ -1,5 +1,4 @@
 import { isEmpty } from '@ember/utils';
-import { computed } from '@ember/object';
 import AppointmentIndexRoute from 'hospitalrun/appointments/index/route';
 import DateFormat from 'hospitalrun/mixins/date-format';
 import moment from 'moment';

@@ -7,7 +7,6 @@ import { computed } from '@ember/object';
 export default AbstractModuleRoute.extend(FulfillRequest, InventoryId, InventoryLocations, {
   addCapability: 'add_inventory_item',
   additionalButtons: computed('intl.locale', function() {
-    console.log('computing additional buttons')
     if (this.currentUserCan(this.get('addCapability'))) {
       return [{
         buttonAction: 'newInventoryBatch',

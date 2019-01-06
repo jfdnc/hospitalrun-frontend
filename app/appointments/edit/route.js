@@ -8,13 +8,12 @@ import PatientListRoute from 'hospitalrun/mixins/patient-list-route';
 import { t } from 'hospitalrun/macro';
 
 export default AbstractEditRoute.extend(AddToPatientRoute, PatientListRoute, {
-
-  editTitle: t('appointments.editTitle'),
   modelName: 'appointment',
   newButtonText: t('appointments.buttons.newButton'),
-
-  newTitle: t('appointments.newTitle'),
-
+  //convert to computed value on appointmentType
+  newTitle: t('appointments.titles.newSurgicalAppointment'),
+  editTitle: t('appointments.titles.editSurgicalAppointment'),
+  //
   getNewData(params) {
     let idParam = get(this, 'idParam');
     let newData = {
@@ -31,7 +30,7 @@ export default AbstractEditRoute.extend(AddToPatientRoute, PatientListRoute, {
     }
     return resolve(newData);
   },
-
+/*
   getScreenTitle(model) {
     let appointmentType = get(model, 'appointmentType');
     if (appointmentType === 'Surgery') {
@@ -46,6 +45,7 @@ export default AbstractEditRoute.extend(AddToPatientRoute, PatientListRoute, {
       return this._super(model);
     }
   },
+  */
 
   model(params) {
     let idParam = this.get('idParam');

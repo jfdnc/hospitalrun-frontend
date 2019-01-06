@@ -1,4 +1,3 @@
-import { computed } from '@ember/object';
 import AppointmenCalendarRoute from 'hospitalrun/appointments/calendar/route';
 import { t } from 'hospitalrun/macro';
 

@@ -1,5 +1,5 @@
 import { isEmpty } from '@ember/utils';
-import EmberObject, { computed, get } from '@ember/object';
+import EmberObject, { get } from '@ember/object';
 import AppointmentIndexRoute from 'hospitalrun/appointments/index/route';
 import { t } from 'hospitalrun/macro';
 
